@@ -21,19 +21,18 @@ for line in src_file:
     if char == 27:
         break
 
-    words = line.split()
-    for word in words:
-        myscreen.addstr(word + ' ', curses.color_pair(1))
+
+    for word in line:
+        myscreen.addstr(word , curses.color_pair(1))
         myscreen.refresh()
         char = myscreen.getch()
         if char == 27:
             break
 
-    myscreen.addstr('\n', curses.color_pair(1))
     myscreen.refresh()
 
 if char == 27:
-    curses.endpythwin()
+    curses.endwin()
 else:
     while char != 27:
         char = myscreen.getch()
